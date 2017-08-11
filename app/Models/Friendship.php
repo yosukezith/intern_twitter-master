@@ -31,7 +31,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUrlName($value)
  * @mixin \Eloquent
  */
-class User extends Authenticatable
+class Friendship extends Authenticatable
 {
     use Notifiable;
 
@@ -40,42 +40,18 @@ class User extends Authenticatable
      *
      * @var array
      */
-
-    public function tweets()
-    {
-        return $this->hasMany('App\Models\Tweet');
-    }
-
-    /**
-    public function followUsers()
-    {
-        return $this->belongsToMany('User', 'friendship', 'follower_id', 'followee_id')
-            ->withTimestamps();
-    }
-
-    public function followedUsers()
-    {
-        return $this->belongsToMany('User', 'friendship', 'followee_id', 'follower_id')
-            ->withTimstamps();
-    }
-    **/
-
     protected $fillable = [
-        'url_name',
-        'email',
-        'password',
-        'display_name',
-        'avatar',
-        'description',
+        'follower_id',
+        'followee_id',
     ];
 
     /**
      * 配列には含めない属性
-     *
+     *protected $hidden = [
+    'password',
+    'remember_token',
+    ];
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+
 }

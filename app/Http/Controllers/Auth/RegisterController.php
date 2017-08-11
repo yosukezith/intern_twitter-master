@@ -67,7 +67,8 @@ class RegisterController extends Controller
      */
     protected function unavailableUrlNames(): array
     {
-        return ['home', 'login', 'logout', 'register', 'password'];
+        return ['home', 'login', 'settings', 'logout', 'register', 'password', 'profile', 'user'
+            , 'search', 'following', 'followers', 'account', 'profile'];
     }
 
     /**

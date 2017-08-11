@@ -12,11 +12,11 @@
                 </span>
 
                 <strong class="card-title d-block">
-                    <a class="text-inherit" href="#">snicmakino</a>
+                    <a class="text-inherit" href="#">{{$user->dispaly_name}}</a>
                 </strong>
 
                 <p class="mb-4">
-                    Software engineer（JavaとかDBとかAWSとか） 空前絶後のKotlinブーム中
+                    {{$user->description}}
                 </p>
             </div>
         </div>

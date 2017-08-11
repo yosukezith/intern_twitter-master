@@ -22,7 +22,7 @@
                 </li>
                 <li class="dropdown-divider"></li>
                 <li class="hidden-md-up">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{route('account')}}">
                         <span class="icon icon-cog"></span> 設定
                     </a>
                 </li>
@@ -38,20 +38,22 @@
                 </li>
             </ul>
 
-            <form action="#" class="form-inline float-right hidden-sm-down">
+            <form method="POST" action="{{ route('search') }}" class="form-inline float-right hidden-sm-down"  >
+                {{ csrf_field() }}
+
                 <span {{ $errors->has('search') ? 'has-danger' : '' }}>
-                    <input name="search" type="text" class="form-control form-search" placeholder="Search">
+                    <input name="keyword" type="text" id="keyword" class="form-control form-search" value="{{old('keyword')}}" placeholder="search">
                 </span>
             </form>
 
             <ul class="nav navbar-nav hidden-sm-down">
                 <li class="nav-item nav-account dropdown">
-                    <a class="nav-link" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link" href="{{route('account')}}" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
                         <img class="rounded-circle" src="{{ asset('images/no-thumb.png') }}">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{route('account')}}">
                             <span class="icon icon-cog"></span> 設定
                         </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
